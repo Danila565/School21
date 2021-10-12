@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-int ft_atoi(char *str);
-void check(int a, int b) 
+int  ft_atoi(char *str);
+void check(int a, int b)
 {
 	a == b ? printf("OK: %d = %d\n", a, b) : printf("Error: %d = %d\n", a, b);
 }
-int main() 
+int main()
 {
 	{
 		char s1[100] = "12345\0";
@@ -15,7 +15,7 @@ int main()
 		char s1[100] = "  -12345\0";
 		check(atoi(s1), ft_atoi(s1));
 	}
-	
+
 	{
 		char s1[100] = "  \f\n\r\t\v+--12345\0";
 		printf("%d\n", ft_atoi(s1));
@@ -60,8 +60,10 @@ int main()
 		char s1[100] = "2147483647";
 		check(atoi(s1), ft_atoi(s1));
 	}
-	
-	
-	
+	{
+		char s1[100] = "--1234";
+		check(atoi(s1), ft_atoi(s1));
+	}
+
 	return (0);
 }
