@@ -6,7 +6,7 @@
 /*   By: efelicit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 04:44:02 by efelicit          #+#    #+#             */
-/*   Updated: 2021/10/06 04:44:02 by efelicit         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:26:55 by efelicit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -16,8 +16,6 @@ int	ft_strlcpy(char *dest, char *src, size_t n)
 	size_t	i;
 	char	*s;
 
-	if (!src)
-		return (0);
 	s = src;
 	i = n;
 	if (i != 0)

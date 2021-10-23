@@ -6,7 +6,7 @@
 /*   By: efelicit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 00:38:21 by efelicit          #+#    #+#             */
-/*   Updated: 2021/10/07 00:38:21 by efelicit         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:26:36 by efelicit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strrchr(const char *s, int a)
 
 	p = (char *) s;
 	res = (void *)(0);
-	if (!p)
-		return ((void *)(0));
 	c = (char) a;
 	while (*p != '\0')
 	{

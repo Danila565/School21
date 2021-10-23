@@ -6,7 +6,7 @@
 /*   By: efelicit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 04:06:35 by efelicit          #+#    #+#             */
-/*   Updated: 2021/10/20 20:50:02 by efelicit         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:32:15 by efelicit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ char	**ft_split(char const *s, char c)
 	size_t	n;
 	char	**res;
 
+	if (!s)
+		return (NULL);
 	n = count_num(s, c);
 	res = (char **) malloc (sizeof(char *) * n);
 	if (!(res && myallocator(res, s, c)))

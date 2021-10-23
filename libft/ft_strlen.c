@@ -6,7 +6,7 @@
 /*   By: efelicit <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 03:17:43 by efelicit          #+#    #+#             */
-/*   Updated: 2021/10/06 03:17:43 by efelicit         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:26:27 by efelicit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -15,8 +15,6 @@ size_t	ft_strlen(const char *c)
 {
 	size_t	len;
 
-	if (!c)
-		return (0);
 	len = 0;
 	while (c[len])
 		++len;
