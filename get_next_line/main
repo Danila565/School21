@@ -1,0 +1,17 @@
+#include "get_next_line.h"
+#include <stdio.h>
+#include <fcntl.h>
+int main()
+{
+	char *str;
+	int fd = open("./gnlTester/files/big_line_with_nl", O_RDONLY);
+	str = get_next_line(fd);
+	printf("s1 = %s", str);
+	str = get_next_line(fd);
+	printf("s2 = %s", str);
+	str = get_next_line(fd);
+	printf("s3 = %s", str);
+	str = get_next_line(fd);
+	printf("s4 = %s", str);
+	return 0;
+}
