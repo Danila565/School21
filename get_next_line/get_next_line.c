@@ -13,18 +13,23 @@
 #include <stdio.h>
 size_t	ft_read(char *str[MAX_FD], int fd)
 {
-	char *buf;
-	int d;
+	char 	*buf;
+	int 	d;
+	char	*tmp;
 
 	d = 1;
 	if (!str[fd])
-		str[fd] = "";
+		str[fd] = ft_strjoin("", "", 0);
 	buf = (char *) malloc(sizeof(char) * BUFFSIZE);
-	while(d > 0)
+	while (d > 0)
 	{
 		d = read(fd, buf, BUFFSIZE);
 		if (d > 0)
+		{
+			tmp = str[fd];
 			str[fd] = ft_strjoin(str[fd], buf, d);
+			free(tmp);
+		}
 		if (ft_strchr(buf, '\n') || d < BUFFSIZE)
 			break ;
 	}
@@ -40,30 +45,20 @@ char	*get_next_line(int fd)
 	size_t		len;
 	char		*tmp;
 
-	//printf("%d - ok1\n", i);
 	ft_read(str, fd);
-	//printf("%d - ok2\n", i);
 
 	line = ft_strchr(str[fd], '\n');
 	if (!line)
 	{
-		//printf("111 - |%s|\n", str[fd]);
 		len = ft_strlen(str[fd]);
 		if (len == 0)
 			return (NULL);
 	}
 	else
-	{
-		//printf("222 - |%s|\n", str[fd]);
 		len = line - str[fd];
-	}
-	//printf("len = %ld - ok3\n", len);
 	line = ft_substr(str[fd], 0, len + 1);
-	//printf("%d - ok4\n", i);
 	tmp = ft_substr(str[fd], len + 1, ft_strlen(str[fd] + len + 1));
-	//printf("%d - ok5\n", i);
 	free(str[fd]);
-	//printf("%d - ok6\n", i);
 	str[fd] = tmp;
 	++i;
 	return (line);

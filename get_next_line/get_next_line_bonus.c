@@ -1,30 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: efelicit <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 16:27:26 by efelicit          #+#    #+#             */
-/*   Updated: 2021/10/22 20:47:14 by efelicit         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <stdio.h>
+
 size_t	ft_read(char *str[MAX_FD], int fd)
 {
-	char *buf;
-	int d;
+	char 	*buf;
+	int 	d;
+	char	*tmp;
 
 	d = 1;
 	if (!str[fd])
-		str[fd] = "";
+		str[fd] = ft_strjoin("", "", 1);
 	buf = (char *) malloc(sizeof(char) * BUFFSIZE);
 	while(d > 0)
 	{
 		d = read(fd, buf, BUFFSIZE);
 		if (d > 0)
+		{
+			tmp = str[fd];
 			str[fd] = ft_strjoin(str[fd], buf, d);
+			free(tmp);
+		}
 		if (ft_strchr(buf, '\n') || d < BUFFSIZE)
 			break ;
 	}
